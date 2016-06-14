@@ -5,9 +5,24 @@
     <meta charset="utf-8">
     <title>Sixerr</title>
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <script src="[% static 'js/boostrap.min.js' %]"></script>
   </head>
   <body>
-    <div>Header</div>
+    <div>
+      <p>Header</p>
+      <p>
+        {% if user and not user.is_anonymous %}
+          Hello {{ user.get_full_name|default:user.username }}!
+        {% else %}
+          Sorry, Have we met?
+        {% endif %}
+      </p>
+      <a href="{% url 'social:begin' 'facebook' %}?next={{request.path}}">Login!</a>
+      <a href="{% url 'auth:logout' %}?next={{request.path}}">Log Out!</a>
+    </div>
     <hr />
     {% block page %}
     {% endblock %}
