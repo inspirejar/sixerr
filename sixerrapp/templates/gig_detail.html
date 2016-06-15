@@ -1,6 +1,59 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block page %}
-  <p>Gig Detail Page</p>
-  <a href="/">Home Page</a>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>I got what you need!</h3>
+          <hr/>
+          <img src="{% static 'img/gig.png' %}" class="img-responsive center-block">
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>About this Gig</h4>
+        </div>
+        <div class="panel-body">
+          <p>Let me know what you need and I got you B!</p>
+        </div>
+      </div>
+      <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>Review</h4>
+      </div>
+
+      <ul class="list-group">
+        {% for i in '123' %}
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-2">
+                <img src="{% static 'img/avatar.png' %}" class="img-circle center-block" height="60" width="60">
+              </div>
+              <div class="col-md-10">
+                <h5>Ol Girl</h5>
+                <p>He ain't lying. He be having everything!</p>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <button type="button" class="btn btn-success btn-block">Order Now! ($6)</button>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <img src="{% static 'img/avatar.png' %}" class="img-circle center-block" height="100" width="100">
+          <h4 class="text-center">Ol Boy</h4>
+          <p>I know people who know people. I also know people!</p>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
