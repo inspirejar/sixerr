@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'bp0og9v2ylf5!s%-qkpt9099+8=e@h1+7x33_(m^nr*fis+r9%'
+SECRET_KEY = 'trq4p(!uan1t+fdszf+0=7%kh_r3c&d%yf#bwji6*4j=0e8atw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -124,8 +124,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# To serve static files to Heroku
-STATIC_ROOT = os.path.join(BASE_URL, 'staticfiles')
+# To serve static files on Heroku
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookOAuth2',
@@ -134,10 +134,10 @@ AUTHENTICATION_BACKENDS = (
 
 LOGIN_REDIRECT_URL = '/'
 
-SOCIAL_AUTH_FACEBOOK_KEY = '1734254366815902'
+SSOCIAL_AUTH_FACEBOOK_KEY = '1734254366815902'
 SOCIAL_AUTH_FACEBOOK_SECRET = '10086729e752a591cda4e5ab6fbce8b2'
 
-# User postgresql on Heroku
+# Replace database setting to use postgresql on Heroku
 import dj_database_url
-db_from_env = dj_database_url
+db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
